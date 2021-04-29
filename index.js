@@ -25,4 +25,4 @@ api.get('/', (request, response) => {
     response.json({status:'ok'})
 })
 const PORT = process.env.PORT || 3001;
-api.listen(3001)
+api.listen(PORT)
