@@ -24,5 +24,5 @@ api.use('/auth',routerAuthentification)
 api.get('/', (request, response) => {
     response.json({status:'ok'})
 })
-// OUVRIR NAVIGATEUR localhost:3000
+const PORT = process.env.PORT || 3001;
 api.listen(3001)
