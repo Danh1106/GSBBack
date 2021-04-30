@@ -1,28 +1,30 @@
-// DECLARATION
+
 const express = require('express')
 const routerUsers = require('./routers/users.router')
+const routerFrais = require('./routers/fichedefrais.router')
 const routerFiches = require('./routers/fichedefrais.router')
 const routerAuthentification = require('./routers/authentification.router')
 let api = express()
 
-// RECUPERE LE BODY - DECODER LA REQUETE
-api.use(express.json())
+api.get('/', (requests, response) => {
+    response.json({status:'ok'})
+})
 
-// PERMET DE COMMUNIQUER AVEC NOTRE API DEPUIS L EXTERIEUR
+api.use(express.json())
 api.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT ,DELETE');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     next();
 })
 
-// USE METHODE EXPRESS : NE PAS OUBLIER EXPORT
 api.use('/users', routerUsers)
 api.use('/fiches', routerFiches)
 api.use('/auth',routerAuthentification)
+api.use('/fraisforfait', routerFrais)
 
-api.get('/', (request, response) => {
-    response.json({status:'ok'})
-})
 const PORT = process.env.PORT || 3001;
 api.listen(PORT)
+
+
+ 
