@@ -32,13 +32,7 @@ const searchLigneFraisHorsForfait = (request, response) => {
 }
 
 //Fonction Fiche Frais
-const addFiche = (request,response) => {
-    const body = request.body
-    ficheModel.addFiche(body, (err, result) => {
-        if (err) response.json(err)
-        else response.json({result})
-    })
-}
+
 
 const updateFiche = (request,response) => {
     const body = request.body
@@ -46,17 +40,6 @@ const updateFiche = (request,response) => {
         response.json({result})
     })
 }
-
-//Fonction Ligne frais forfait
-
-const addLigneFraisForfait = (request,response) => {
-    const body = request.body
-    ficheModel.addLigneFraisForfait(body, (err, result) => {
-        if (err) response.json(err)
-        else response.json({result})
-    })
-}
-
 const updateLigneFraisForfait = (request,response) => {
     const body = request.body
     ficheModel.updateLigneFraisForfait(request.params.id, request.params.mois, request.params.idFraisForfait, body, (err, result) => {
@@ -64,14 +47,25 @@ const updateLigneFraisForfait = (request,response) => {
         else response.json({result})
     })
 }
-
+const updateLigneFraisHorsForfait = (request,response) => {
+    const body = request.body
+    ficheModel.updateLigneFraisHorsForfait(body, request.params.id,(err, result) => {
+        if (err) response.json(err)
+        else response.json({result})
+    })
+}
 const deleteLigneFraisForfait = (request,response) => {
     ficheModel.deleteLigneFraisForfait(request.params.id, request.params.mois, request.params.idFraisForfait, (err, result) => {
         if (err) response.json(err)
         else response.json({result})
     })
 }
-
+const deleteLigneFraisHorsForfait = (request,response) => {
+    ficheModel.deleteLigneFraisHorsForfait(request.params.id, (err, result) => {
+        if (err) response.json(err)
+        else response.json({result})
+    })
+}
 //Fonction ligne Hors forfait
 const addLigneFraisHorsForfait = (request,response) => {
     const body = request.body
@@ -80,21 +74,21 @@ const addLigneFraisHorsForfait = (request,response) => {
         else response.json({result})
     })
 }
-
-const updateLigneFraisHorsForfait = (request,response) => {
+const addLigneFraisForfait = (request,response) => {
     const body = request.body
-    ficheModel.updateLigneFraisHorsForfait(body, request.params.id,(err, result) => {
+    ficheModel.addLigneFraisForfait(body, (err, result) => {
+        if (err) response.json(err)
+        else response.json({result})
+    })
+}
+const addFiche = (request,response) => {
+    const body = request.body
+    ficheModel.addFiche(body, (err, result) => {
         if (err) response.json(err)
         else response.json({result})
     })
 }
 
-const deleteLigneFraisHorsForfait = (request,response) => {
-    ficheModel.deleteLigneFraisHorsForfait(request.params.id, (err, result) => {
-        if (err) response.json(err)
-        else response.json({result})
-    })
-}
 
 
 
