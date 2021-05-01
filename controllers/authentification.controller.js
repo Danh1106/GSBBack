@@ -1,7 +1,7 @@
 const userModel = require('../models/users.model')
 const createAccessToken = require('../config/token')
 const searchByLogin =  (request, response) => {
-const { response } = require("express")
+
 
 
     const { login, mdp } = request.body

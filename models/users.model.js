@@ -1,6 +1,10 @@
   
 const connection = require('../config/db')
 
+const searchByLogin = (login, callback) => {
+    connection.query('SELECT * from utilisateur WHERE login = (?)', login, callback)
+
+}
 const searchAll = (login,callback) => {
     
     
@@ -35,5 +39,6 @@ module.exports = {
     searchAll,
     addUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    searchByLogin
 }

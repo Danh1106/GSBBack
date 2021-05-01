@@ -1,5 +1,5 @@
 const { response } = require('express')
-const userModel = require ('../models/user.model')
+const userModel = require ('../models/users.model')
 var createAccessToken = require('../config/token')
 
 const searchAll =  (request, response) => {

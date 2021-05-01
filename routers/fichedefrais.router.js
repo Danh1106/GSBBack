@@ -3,8 +3,6 @@ const express = require("express")
 const ficheController = require('../controllers/fichedefrais.controller') // LES 2 .. PERMETTENT DE SORTIR DU DOSSIER
 let router = express()
 
-
-//Recupération données
 router.get('/lignefraisforfait/:id/:mois', ficheController.searchLigneFraisForfait)
 router.get('/lignefraishorsforfait/:id/:mois', ficheController.searchLigneFraisHorsForfait)
 router.get('/:id', ficheController.searchAll)
