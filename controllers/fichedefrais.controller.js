@@ -31,9 +31,6 @@ const searchLigneFraisHorsForfait = (request, response) => {
     })
 }
 
-//Fonction Fiche Frais
-
-
 const updateFiche = (request,response) => {
     const body = request.body
     ficheModel.updateFiche(request.params.id, request.params.mois, body, (err, result) => {
